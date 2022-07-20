@@ -52,7 +52,7 @@ Sub 積算平均_共鳴信号真数_2022年_5月改良()
                 
                 'Absorbanceを真数に変換する
                 Cells(i, 17) = Cells(i, 5)
-                Cells(i, 18) = Application.WorksheetFunction.Power(10, Cells(i, 6) / 20) * 1000
+                Cells(i, 18) = Application.WorksheetFunction.Power(10, Cells(i, 6) / 20)
                 Cells(i, 19) = Cells(i, 7)
                 
             Next i
@@ -74,7 +74,7 @@ Sub 積算平均_共鳴信号真数_2022年_5月改良()
                 
                 'Absorbanceを真数に変換する
                 Cells(j, 17) = Cells(j, 5)
-                Cells(j, 18) = Application.WorksheetFunction.Power(10, Cells(j, 6) / 20) * 1000
+                Cells(j, 18) = Application.WorksheetFunction.Power(10, Cells(j, 6) / 20)
                 Cells(j, 19) = Cells(j, 7)
                 
             Next j
@@ -163,7 +163,7 @@ Sub 積算平均_共鳴信号真数_2022年_5月改良()
                 
                 'Absorbanceを真数にする
                 Cells(i, 23) = Cells(i, 13)
-                Cells(i, 24) = Application.WorksheetFunction.Power(10, Cells(i, 14) / 20) * 1000
+                Cells(i, 24) = Application.WorksheetFunction.Power(10, Cells(i, 14) / 20)
                 Cells(i, 25) = Cells(i, 15)
             
             Next i
@@ -241,19 +241,23 @@ Sub 積算平均_共鳴信号真数_2022年_5月改良()
         "0°データ数:" & amountOfData & " , 測定回数:" & measurementTimes & _
         " , 測定ポイント数：" & measurementPoints - 3 & vbCrLf & _
         ">> 共鳴磁界値：" & fieldValueAtMin & vbCrLf & _
+        ">> P(ground0) = " & absorbanceGround & vbCrLf & _
         ">> 180°データ数:" & amountOfDataN & " , 測定回数:" & measurementTimesN & _
         " , 測定ポイント数：" & measurementPointsN - 3 & vbCrLf & _
-        ">> 共鳴磁界値：" & fieldValueAtMinN
+        ">> 共鳴磁界値：" & fieldValueAtMinN & vbCrLf & _
+        ">> P(ground180) = " & absorbanceGroundN
     ElseIf isExecute Then
         MsgBox "処理完了>>" & vbCrLf & _
         "0°データ数:" & amountOfData & " , 測定回数:" & measurementTimes & _
         " , 測定ポイント数：" & measurementPoints - 3 & vbCrLf & _
-        ">> 共鳴磁界値：" & fieldValueAtMin
+        ">> 共鳴磁界値：" & fieldValueAtMin & vbCrLf & _
+        ">> P(ground0) = " & absorbanceGround
     ElseIf isExecuteN Then
         MsgBox "処理完了>>" & vbCrLf & _
         ">> 180°データ数:" & amountOfDataN & " , 測定回数:" & measurementTimesN & _
         " , 測定ポイント数：" & measurementPointsN - 3 & vbCrLf & _
-        ">> 共鳴磁界値：" & fieldValueAtMinN
+        ">> 共鳴磁界値：" & fieldValueAtMinN & vbCrLf & _
+        ">> P(ground180) = " & absorbanceGroundN
     Else
         MsgBox "no data"
     End If
